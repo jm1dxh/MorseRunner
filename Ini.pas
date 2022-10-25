@@ -29,6 +29,9 @@ var
   Number: string = '10H';
   HamName: string;
   Wpm: integer = 30;
+  WpmMin: integer = 30;
+  WpmMax: integer = 30;
+  WpmFixed: boolean = false;
   BandWidth: integer = 500;
   Pitch: integer = 600;
   Qsk: boolean = true;
@@ -81,6 +84,14 @@ begin
       Wpm := Max(10, Min(120, Wpm));
       MainForm.SpinEdit1.Value := Wpm;
       Tst.Me.Wpm := Wpm;
+      WpmMin := ReadInteger(SEC_STN, 'WpmMin', WpmMin);
+      WpmMin := Max(10, Min(120, WpmMin));
+      MainForm.SpinEdit4.Value := WpmMin;
+      WpmMax := ReadInteger(SEC_STN, 'WpmMax', WpmMax);
+      WpmMax := Max(10, Min(120, WpmMax));
+      MainForm.SpinEdit5.Value := WpmMax;
+//      MainForm.CheckBox7.Checked := ReadBool(SEC_STN, 'WpmFixed', false);
+      MainForm.SetWpmFixed(ReadBool(SEC_STN, 'WpmFixed', false));
 
       MainForm.SetQsk(ReadBool(SEC_STN, 'Qsk', Qsk));
       CallsFromKeyer := ReadBool(SEC_STN, 'CallsFromKeyer', CallsFromKeyer);
@@ -132,6 +143,10 @@ begin
       WriteInteger(SEC_STN, 'Pitch', MainForm.ComboBox1.ItemIndex);
       WriteInteger(SEC_STN, 'BandWidth', MainForm.ComboBox2.ItemIndex);
       WriteInteger(SEC_STN, 'Wpm', Wpm);
+      WriteInteger(SEC_STN, 'WpmMin', WpmMin);
+      WriteInteger(SEC_STN, 'WpmMax', WpmMax);
+      WriteBool(SEC_STN, 'WpmFixed', WpmFixed);
+
       WriteBool(SEC_STN, 'Qsk', Qsk);
 
       WriteInteger(SEC_BND, 'Activity', Activity);

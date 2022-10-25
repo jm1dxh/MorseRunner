@@ -4,7 +4,7 @@ object MainForm: TMainForm
   BorderIcons = [biSystemMenu]
   BorderStyle = bsSingle
   Caption = 'Morse Runner'
-  ClientHeight = 488
+  ClientHeight = 541
   ClientWidth = 700
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -68,9 +68,9 @@ object MainForm: TMainForm
   end
   object Panel1: TPanel
     Left = 0
-    Top = 369
+    Top = 413
     Width = 700
-    Height = 119
+    Height = 120
     Align = alBottom
     BevelInner = bvRaised
     BevelOuter = bvLowered
@@ -358,7 +358,7 @@ object MainForm: TMainForm
   end
   object Panel5: TPanel
     Left = 0
-    Top = 361
+    Top = 533
     Width = 700
     Height = 8
     Align = alBottom
@@ -369,7 +369,7 @@ object MainForm: TMainForm
     Left = 0
     Top = 2
     Width = 488
-    Height = 359
+    Height = 411
     Align = alClient
     BevelOuter = bvNone
     BorderStyle = bsSingle
@@ -378,7 +378,7 @@ object MainForm: TMainForm
       Left = 0
       Top = 0
       Width = 484
-      Height = 314
+      Height = 366
       Align = alClient
       Brush.Color = 16711401
       Pen.Style = psClear
@@ -443,16 +443,24 @@ object MainForm: TMainForm
       Transparent = True
     end
     object Label19: TLabel
-      Left = 138
-      Top = 147
+      Left = 147
+      Top = 138
       Width = 179
       Height = 13
       Caption = 'for ALL JA Copyright(c) 2022 JR8PPG'
       Transparent = True
     end
+    object Label22: TLabel
+      Left = 103
+      Top = 152
+      Width = 257
+      Height = 13
+      Caption = 'Added CW Speed Control. Copyright(c) 2022 JM1DXH'
+      Transparent = True
+    end
     object RichEdit1: TRichEdit
       Left = 0
-      Top = 314
+      Top = 366
       Width = 484
       Height = 41
       TabStop = False
@@ -475,15 +483,15 @@ object MainForm: TMainForm
     Left = 488
     Top = 2
     Width = 212
-    Height = 359
+    Height = 411
     Align = alRight
     BevelOuter = bvNone
     TabOrder = 3
     object GroupBox3: TGroupBox
       Left = 13
-      Top = 247
+      Top = 292
       Width = 194
-      Height = 81
+      Height = 86
       Caption = ' Band Conditions '
       TabOrder = 2
       object Label11: TLabel
@@ -571,7 +579,7 @@ object MainForm: TMainForm
       Left = 13
       Top = 56
       Width = 194
-      Height = 187
+      Height = 235
       Caption = ' Station '
       TabOrder = 1
       object Label4: TLabel
@@ -582,7 +590,7 @@ object MainForm: TMainForm
         Caption = 'Call'
       end
       object Label5: TLabel
-        Left = 156
+        Left = 122
         Top = 76
         Width = 27
         Height = 13
@@ -597,28 +605,28 @@ object MainForm: TMainForm
       end
       object Label7: TLabel
         Left = 12
-        Top = 104
+        Top = 155
         Width = 45
         Height = 13
         Caption = 'CW Pitch'
       end
       object Label9: TLabel
         Left = 12
-        Top = 132
+        Top = 183
         Width = 68
         Height = 13
         Caption = 'RX Bandwidth'
       end
       object Label18: TLabel
         Left = 12
-        Top = 162
+        Top = 213
         Width = 53
         Height = 13
         Caption = 'Mon. Level'
       end
       object VolumeSlider1: TVolumeSlider
         Left = 88
-        Top = 155
+        Top = 206
         Width = 65
         Height = 20
         Hint = '-15.0 dB'
@@ -636,6 +644,20 @@ object MainForm: TMainForm
         Height = 13
         Caption = 'NR'
       end
+      object Label20: TLabel
+        Left = 12
+        Top = 101
+        Width = 74
+        Height = 13
+        Caption = 'CW Speed(min)'
+      end
+      object Label21: TLabel
+        Left = 12
+        Top = 127
+        Width = 77
+        Height = 13
+        Caption = 'CW Speed(max)'
+      end
       object editCallsign: TEdit
         Left = 36
         Top = 16
@@ -648,9 +670,9 @@ object MainForm: TMainForm
         OnChange = editCallsignChange
       end
       object SpinEdit1: TSpinEdit
-        Left = 88
+        Left = 69
         Top = 72
-        Width = 65
+        Width = 52
         Height = 22
         TabStop = False
         MaxLength = 3
@@ -674,7 +696,7 @@ object MainForm: TMainForm
       end
       object ComboBox1: TComboBox
         Left = 88
-        Top = 100
+        Top = 151
         Width = 65
         Height = 21
         Style = csDropDownList
@@ -699,7 +721,7 @@ object MainForm: TMainForm
       end
       object ComboBox2: TComboBox
         Left = 88
-        Top = 128
+        Top = 179
         Width = 65
         Height = 21
         Style = csDropDownList
@@ -731,12 +753,50 @@ object MainForm: TMainForm
         Text = '10H'
         OnChange = editNumberChange
       end
+      object CheckBox7: TCheckBox
+        Left = 150
+        Top = 74
+        Width = 45
+        Height = 17
+        TabStop = False
+        Caption = 'Fixed'
+        Checked = True
+        State = cbChecked
+        TabOrder = 6
+        OnClick = CheckBox7Click
+      end
+      object SpinEdit4: TSpinEdit
+        Left = 92
+        Top = 97
+        Width = 52
+        Height = 22
+        TabStop = False
+        MaxLength = 3
+        MaxValue = 120
+        MinValue = 10
+        TabOrder = 7
+        Value = 30
+        OnChange = SpinEdit4Change
+      end
+      object SpinEdit5: TSpinEdit
+        Left = 92
+        Top = 123
+        Width = 52
+        Height = 22
+        TabStop = False
+        MaxLength = 3
+        MaxValue = 120
+        MinValue = 10
+        TabOrder = 8
+        Value = 30
+        OnChange = SpinEdit5Change
+      end
     end
     object Panel10: TPanel
       Left = 0
-      Top = 328
+      Top = 377
       Width = 212
-      Height = 31
+      Height = 34
       Align = alBottom
       BevelOuter = bvNone
       TabOrder = 3

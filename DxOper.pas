@@ -68,7 +68,15 @@ function TDxOperator.GetWpm: integer;
 begin
   if RunMode = rmHst
     then Result := Ini.Wpm
-    else Result := Round(Ini.Wpm * 0.5 * (1 + Random));
+//    else Result := Round(Ini.Wpm * 0.5 * (1 + Random));
+    else
+      if Ini.WpmFixed = true then
+        result := Ini.Wpm
+      else
+      if Ini.WpmMin <= Ini.WpmMax then
+        Result := RandomRange(Ini.WpmMin , (Ini.WpmMax + 1))
+      else
+        Result := RandomRange(Ini.WpmMax , (Ini.WpmMin + 1))
 end;
 
 function TDxOperator.GetNR: integer;

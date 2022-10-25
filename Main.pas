@@ -207,6 +207,13 @@ type
     radioAllja: TRadioButton;
     radioAcag: TRadioButton;
     actionPlayCq: TAction;
+    CheckBox7: TCheckBox;
+    Label20: TLabel;
+    SpinEdit4: TSpinEdit;
+    Label21: TLabel;
+    SpinEdit5: TSpinEdit;
+    Label22: TLabel;
+
     procedure FormCreate(Sender: TObject);
     procedure AlSoundOut1BufAvailable(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
@@ -223,6 +230,9 @@ type
     procedure ComboBox1Change(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure SpinEdit1Change(Sender: TObject);
+    procedure SpinEdit4Change(Sender: TObject);
+    procedure SpinEdit5Change(Sender: TObject);
+    procedure CheckBox7Click(Sender: TObject);
     procedure CheckBox1Click(Sender: TObject);
     procedure CheckBoxClick(Sender: TObject);
     procedure SpinEdit2Change(Sender: TObject);
@@ -286,6 +296,7 @@ type
     procedure PopupScoreHst;
     procedure Advance;
 
+    procedure SetWpmFixed(Value: boolean);
     procedure SetQsk(Value: boolean);
     procedure SetMyCall(ACall: string);
     procedure SetNumber(ANumber: string);
@@ -660,6 +671,22 @@ procedure TMainForm.SpinEdit1Change(Sender: TObject);
 begin
   Ini.Wpm := SpinEdit1.Value;
   Tst.Me.Wpm := Ini.Wpm;
+end;
+
+procedure TMainForm.SpinEdit4Change(Sender: TObject);
+begin
+  Ini.WpmMin := SpinEdit4.Value;
+end;
+
+procedure TMainForm.SpinEdit5Change(Sender: TObject);
+begin
+  Ini.WpmMin := SpinEdit5.Value;
+end;
+
+procedure TMainForm.CheckBox7Click(Sender: TObject);
+begin
+  SetWpmFixed(CheckBox7.Checked);
+  ActiveControl := Edit1;
 end;
 
 procedure TMainForm.CheckBox1Click(Sender: TObject);
@@ -1083,6 +1110,22 @@ begin
   SetMyCall(Trim(InputBox('Callsign', 'Callsign', editCallsign.Text)));
 end;
 
+procedure TMainForm.SetWpmFixed(Value: boolean);
+begin
+  WpmFixed := Value;
+  CheckBox7.Checked := WpmFixed;
+
+  if WpmFixed then
+    begin
+    spinedit4.Enabled:= false;
+    spinedit5.Enabled:= false;
+    end
+  else
+    begin
+    spinedit4.Enabled:= true;
+    spinedit5.Enabled:= true;
+    end;
+end;
 
 procedure TMainForm.SetQsk(Value: boolean);
 begin
