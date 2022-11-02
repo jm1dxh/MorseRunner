@@ -157,7 +157,7 @@ begin
   //classify by penalty
   case M[High(M), High(M[0])] of
     0:   Result := mcYes;
-    1,2: Result := mcAlmost;             
+    1,2: Result := mcAlmost;
     else Result := mcNo;
   end;
 
@@ -205,7 +205,7 @@ begin
       osNeedNr, osNeedCall, osNeedCallNr, osNeedEnd: State := osFailed;
      end;
     Exit;
-    end;  
+    end;
 
 
   if msgHisCall in AMsg then

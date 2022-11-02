@@ -11,7 +11,7 @@ uses
   Windows, Messages, SysUtils, Classes, Graphics, Controls, Forms, Dialogs,
   Buttons, SndCustm, SndOut, Contest, Ini, MorseKey, CallLst,
   VolmSldr, VolumCtl, StdCtrls, Station, Menus, ExtCtrls, Log, MAth,
-  ComCtrls, Spin, SndTypes, ShellApi, jpeg, ToolWin, ImgList, Crc32, 
+  ComCtrls, Spin, SndTypes, ShellApi, jpeg, ToolWin, ImgList, Crc32,
   WavFile, IniFiles, System.ImageList, System.Character, System.Actions,
   Vcl.ActnList;
 
@@ -206,6 +206,7 @@ type
     radioWpx: TRadioButton;
     radioAllja: TRadioButton;
     radioAcag: TRadioButton;
+    radioAYC: TRadioButton;
     actionPlayCq: TAction;
     CheckBox7: TCheckBox;
     Label20: TLabel;
@@ -213,6 +214,7 @@ type
     Label21: TLabel;
     SpinEdit5: TSpinEdit;
     Label22: TLabel;
+    Label23: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure AlSoundOut1BufAvailable(Sender: TObject);
@@ -334,6 +336,7 @@ begin
     0: radioWpx.Checked := True;
     1: radioAllja.Checked := True;
     2: radioAcag.Checked := True;
+    3: radioAYC.Checked := True;
   end;
 end;
 
@@ -352,7 +355,7 @@ begin
   if AlSoundOut1.Enabled then
     try AlSoundOut1.PutData(Tst.GetAudio); except end;
 end;
-                                    
+
 
 procedure TMainForm.SendClick(Sender: TObject);
 var
@@ -743,7 +746,7 @@ begin
   CallSent := false;
   NrSent := false;
 end;
-                                   
+
 
 procedure TMainForm.About1Click(Sender: TObject);
 const
@@ -752,7 +755,7 @@ const
         've3nea@dxatlas.com'#13;
 begin
   Application.MessageBox(Msg, 'Morse Runner 1.68', MB_OK or MB_ICONINFORMATION);
-end;          
+end;
 
 
 procedure TMainForm.Readme1Click(Sender: TObject);
@@ -813,6 +816,7 @@ begin
   EnableCtl(radioWpx,  BStop);
   EnableCtl(radioAllja,  BStop);
   EnableCtl(radioAcag,  BStop);
+  EnableCtl(radioAYC,  BStop);
 
   EnableCtl(editCallsign,  BStop);
   EnableCtl(editNumber,  BStop);
@@ -954,7 +958,7 @@ begin
 
   S := S + '[' + IntToHex(CalculateCRC32(S, $C90C2086), 8) + ']';
 
-           
+
   FName := ChangeFileExt(ParamStr(0), '.lst');
   with TStringList.Create do
     try
@@ -1153,7 +1157,6 @@ begin
 end;
 
 
-
 procedure TMainForm.Pitch1Click(Sender: TObject);
 begin
   SetPitch((Sender as TMenuItem).Tag);
@@ -1190,7 +1193,6 @@ procedure TMainForm.AudioRecordingEnabled1Click(Sender: TObject);
 begin
   Ini.SaveWav := not Ini.SaveWav;
 end;
-
 
 
 procedure TMainForm.SelfMonClick(Sender: TObject);
