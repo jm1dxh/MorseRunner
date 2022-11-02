@@ -15,7 +15,7 @@ function PickCall: string;
 function PickCall2: TCall;
 
 var
-  Calls: array[0..2] of TCallList;
+  Calls: array[0..3] of TCallList;
 
 
 
@@ -27,6 +27,7 @@ begin
    Calls[0].LoadFromMaster();
    Calls[1].LoadFromFile('DIC_ALLJA.DAT');
    Calls[2].LoadFromFile('DIC_ACAG.DAT');
+   Calls[3].LoadFromFile('DIC_AYC.DAT');
 end;
 
 
@@ -71,11 +72,13 @@ initialization
   Calls[0] := TCallList.Create;
   Calls[1] := TCallList.Create;
   Calls[2] := TCallList.Create;
+  Calls[3] := TCallList.Create;
 
 finalization
   Calls[0].Free;
   Calls[1].Free;
   Calls[2].Free;
+  Calls[3].Free;
 
 end.
 

@@ -458,14 +458,6 @@ object MainForm: TMainForm
       Caption = 'Added CW Speed Control. Copyright(c) 2022 JM1DXH'
       Transparent = True
     end
-    object Label23: TLabel
-      Left = 103
-      Top = 166
-      Width = 281
-      Height = 13
-      Caption = 'Added ALL Yokohama Contest. Copyright(c) 2022 JM1DXH'
-      Transparent = True
-    end
     object RichEdit1: TRichEdit
       Left = 0
       Top = 366
@@ -883,7 +875,7 @@ object MainForm: TMainForm
       end
       object radioAllja: TRadioButton
         Tag = 1
-        Left = 54
+        Left = 66
         Top = 20
         Width = 53
         Height = 17
@@ -893,22 +885,12 @@ object MainForm: TMainForm
       end
       object radioAcag: TRadioButton
         Tag = 2
-        Left = 103
+        Left = 130
         Top = 20
         Width = 53
         Height = 17
         Caption = 'ACAG'
         TabOrder = 2
-        OnClick = radioSimContestClick
-      end
-      object radioAYC: TRadioButton
-        Tag = 3
-        Left = 150
-        Top = 20
-        Width = 40
-        Height = 17
-        Caption = 'AYC'
-        TabOrder = 3
         OnClick = radioSimContestClick
       end
     end
