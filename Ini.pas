@@ -23,7 +23,7 @@ const
 
 type
   TRunMode = (rmStop, rmPileup, rmSingle, rmWpx, rmHst);
-  
+
 var
   Call: string = 'VE3NEA';
   Number: string = '10H';
@@ -90,7 +90,6 @@ begin
       WpmMax := ReadInteger(SEC_STN, 'WpmMax', WpmMax);
       WpmMax := Max(10, Min(120, WpmMax));
       MainForm.SpinEdit5.Value := WpmMax;
-//      MainForm.CheckBox7.Checked := ReadBool(SEC_STN, 'WpmFixed', false);
       MainForm.SetWpmFixed(ReadBool(SEC_STN, 'WpmFixed', false));
 
       MainForm.SetQsk(ReadBool(SEC_STN, 'Qsk', Qsk));
