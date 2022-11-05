@@ -453,14 +453,6 @@ object MainForm: TMainForm
     object Label22: TLabel
       Left = 103
       Top = 152
-      Width = 257
-      Height = 13
-      Caption = 'Added CW Speed Control. Copyright(c) 2022 JM1DXH'
-      Transparent = True
-    end
-    object Label23: TLabel
-      Left = 103
-      Top = 166
       Width = 281
       Height = 13
       Caption = 'Added ALL Yokohama Contest. Copyright(c) 2022 JM1DXH'

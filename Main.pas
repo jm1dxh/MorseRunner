@@ -214,7 +214,6 @@ type
     Label21: TLabel;
     SpinEdit5: TSpinEdit;
     Label22: TLabel;
-    Label23: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure AlSoundOut1BufAvailable(Sender: TObject);
